@@ -7,11 +7,15 @@
 
 import SwiftUI
 
+struct ToolBarButtonViewModel {
+    let action: () -> Void
+}
+
 struct ToolBarButton: View {
+    let viewModel: ToolBarButtonViewModel
+    
     var body: some View {
-        Button(action: {
-            print("b")
-        }) {
+        Button(action: viewModel.action) {
             HStack {
                 Image(systemName: "plus.circle.fill")
                     .font(.title2)
@@ -24,6 +28,6 @@ struct ToolBarButton: View {
 
 struct ToolBarButton_Previews: PreviewProvider {
     static var previews: some View {
-        ToolBarButton().previewLayout(.sizeThatFits)
+        ToolBarButton(viewModel: ToolBarButtonViewModel(action: {})).previewLayout(.sizeThatFits)
     }
 }

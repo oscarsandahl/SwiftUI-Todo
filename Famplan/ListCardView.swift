@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct ListCardViewModel {
+struct ListCardViewModel: Identifiable {
+    let id = UUID()
     var listTitle: String
     var image: String
 }
@@ -17,7 +18,7 @@ struct ListCardView: View {
     
     var body: some View {
         ZStack {
-            VStack(spacing: 15) {
+            HStack(spacing: 15) {
                 Text(viewModel.image)
                     .font(.largeTitle)
                 Text(viewModel.listTitle)

@@ -7,24 +7,19 @@
 
 import SwiftUI
 
-struct IconColors: Identifiable {
-    let id = UUID()
-    let color: Color
-}
-
 struct NewListView: View {
     @Environment(\.dismiss) var dismiss
     @State private var name: String = ""
     
-    let colors: [IconColors] = [
-        IconColors(color: Color.green.opacity(0.15)),
-        IconColors(color: Color.red.opacity(0.15)),
-        IconColors(color: Color.pink.opacity(0.15)),
-        IconColors(color: Color.yellow.opacity(0.15)),
-        IconColors(color: Color.orange.opacity(0.15)),
-        IconColors(color: Color.blue.opacity(0.15)),
-        IconColors(color: Color.black.opacity(0.15)),
-        IconColors(color: Color.brown.opacity(0.15))
+    let colors: [Color] = [
+        Color.green.opacity(0.2),
+        Color.red.opacity(0.2),
+        Color.pink.opacity(0.2),
+        Color.yellow.opacity(0.2),
+        Color.orange.opacity(0.2),
+        Color.blue.opacity(0.2),
+        Color.black.opacity(0.2),
+        Color.brown.opacity(0.2)
     ]
     
     let columns = [
@@ -43,23 +38,23 @@ struct NewListView: View {
                             Text("💰")
                                 .font(.system(size: 50))
                                 .padding(8)
-                                .background(Color.orange.opacity(0.15))
+                                .background(Color.orange.opacity(0.2))
                                 .clipShape(Circle())
                             TextField("List Name", text: $name)
                                 .padding()
-                                .background(Color.gray.opacity(0.15))
+                                .background(Color.gray.opacity(0.2))
                                 .cornerRadius(10)
                         }
                     }
                     .padding()
                     Section {
                         LazyVGrid(columns: columns, spacing: 20) {
-                            ForEach(colors) { color in
+                            ForEach(colors, id:  \.self) { color in
                                 Button("") {
-                                    print("Tapped")
+                                    print("s")
                                 }
                                 .frame(width: 50, height: 50)
-                                .background(color.color)
+                                .background(color)
                                 .clipShape(Circle())
                             }
                         }

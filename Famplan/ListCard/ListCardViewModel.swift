@@ -11,4 +11,5 @@ struct ListCardViewModel: Identifiable {
     let id = UUID()
     var listTitle: String
     var image: String
+    var items: Int
 }

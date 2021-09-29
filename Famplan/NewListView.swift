@@ -10,6 +10,7 @@ import SwiftUI
 struct NewListView: View {
     @Environment(\.dismiss) var dismiss
     @State private var inputField: String = ""
+    @State private var selectedColor: Color = Color("Black")
     
     let colors: [Color] = [
         Color("Green"),
@@ -38,7 +39,7 @@ struct NewListView: View {
                             Text("💰")
                                 .font(.system(size: 50))
                                 .padding(8)
-                                .background(Color("Black"))
+                                .background(selectedColor)
                                 .clipShape(Circle())
                             TextField("List Name", text: $inputField)
                                 .padding()
@@ -54,7 +55,7 @@ struct NewListView: View {
                                 .frame(width: 50, height: 50)
                                 .foregroundColor(color)
                                 .onTapGesture {
-                                    print("TAP")
+                                    selectedColor = color
                                 }
                             }
                         }

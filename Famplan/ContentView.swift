@@ -8,9 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var mockLists: [ListCardViewModel] = [
+        ListCardViewModel(listTitle: "List 1", image: "🛍"),
+        ListCardViewModel(listTitle: "List 2", image: "🛍"),
+        ListCardViewModel(listTitle: "List 3", image: "🛍")
+    ]
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            ZStack {
+                List {
+                    ForEach($mockLists) { cell in
+                        ListCardView(viewModel: cell)
+                    }
+                }
+            }
+            .navigationTitle("Title")
+            .toolbar {
+                ToolbarItemGroup(placement: .bottomBar) {
+                    ToolBarButton()
+                    Spacer()
+                }
+            }
+        }
     }
 }
 

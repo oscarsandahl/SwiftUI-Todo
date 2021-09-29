@@ -6,12 +6,21 @@
 //
 
 import SwiftUI
+import Combine
 
 struct NewListView: View {
     @Environment(\.dismiss) var dismiss
     @State private var inputField: String = ""
     @State private var iconField: String = "💰"
     @State private var selectedColor: Color = Color("Black")
+    
+    let textLimit = 1
+    
+    func limitText(_ upper: Int) {
+        if iconField.count > upper {
+            iconField = String(iconField.prefix(upper))
+        }
+    }
     
     let colors: [Color] = [
         Color("Green"),
@@ -38,6 +47,9 @@ struct NewListView: View {
                     Section {
                         VStack(spacing: 20) {
                             TextField("", text: $iconField)
+                                .onReceive(Just(iconField), perform: { _ in
+                                    limitText(textLimit)
+                                })
                                 .font(.system(size: 50))
                                 .multilineTextAlignment(.center)
                                 .lineLimit(1)
@@ -78,7 +90,7 @@ struct NewListView: View {
                     Button("Done") {
                         print("Done Tapped!")
                     }
-                    .disabled(inputField.isEmpty)
+                    .disabled(inputField.isEmpty || iconField.isEmpty)
                 }
             }
         }

@@ -9,16 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     @State var mockLists: [ListCardViewModel] = [
-        ListCardViewModel(listTitle: "List 1", image: "🛍"),
-        ListCardViewModel(listTitle: "List 2", image: "🛍"),
-        ListCardViewModel(listTitle: "List 3", image: "🛍")
+        ListCardViewModel(listTitle: "List 1", image: "🛍", items: 0),
+        ListCardViewModel(listTitle: "List 2", image: "📝", items: 5),
+        ListCardViewModel(listTitle: "List 3", image: "💰", items: 8)
     ]
     
+    var index: Int {
+        mockLists.count + 1
+    }
+    
+    @State private var showingSheet = false
+    
+    //MARK: - View
     var body: some View {
         NavigationView {
-            ZStack {
-                List {
-                    ForEach($mockLists) { cell in
+            List {
+                ForEach($mockLists) { cell in
+                    NavigationLink(destination: Text("New List")) {
                         ListCardView(viewModel: cell)
                     }
                 }
@@ -26,7 +33,12 @@ struct ContentView: View {
             .navigationTitle("Title")
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
-                    ToolBarButton()
+                    ToolBarButtonView(viewModel: ToolBarButtonViewModel(action: {
+                        showingSheet.toggle()
+                    }))
+                        .sheet(isPresented: $showingSheet) {
+                            NewListView()
+                        }
                     Spacer()
                 }
             }

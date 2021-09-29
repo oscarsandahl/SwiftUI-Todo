@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NewListView: View {
     @Environment(\.dismiss) var dismiss
-    @State private var name: String = ""
+    @State private var inputField: String = ""
     
     let colors: [Color] = [
         Color("Green"),
@@ -40,7 +40,7 @@ struct NewListView: View {
                                 .padding(8)
                                 .background(Color("Black"))
                                 .clipShape(Circle())
-                            TextField("List Name", text: $name)
+                            TextField("List Name", text: $inputField)
                                 .padding()
                                 .background(Color.gray.opacity(0.2))
                                 .cornerRadius(10)
@@ -50,12 +50,12 @@ struct NewListView: View {
                     Section {
                         LazyVGrid(columns: columns, spacing: 20) {
                             ForEach(colors, id:  \.self) { color in
-                                Button("") {
-                                    print("s")
-                                }
+                                Circle()
                                 .frame(width: 50, height: 50)
-                                .background(color)
-                                .clipShape(Circle())
+                                .foregroundColor(color)
+                                .onTapGesture {
+                                    print("TAP")
+                                }
                             }
                         }
                         .padding(.horizontal, 10)

@@ -11,12 +11,29 @@ struct NewListView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        Button("Press to dismiss") {
-                    dismiss()
+        NavigationView {
+            VStack {
+                Form {
+                    Section {
+                        
+                    }
                 }
-                .font(.title)
-                .padding()
-                .background(Color.black)
+            }
+            .navigationBarTitle("New List", displayMode: .inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Cancel") {
+                        dismiss()
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Done") {
+                        print("Help tapped!")
+                    }
+                    .disabled(true)
+                }
+            }
+        }
     }
 }
 

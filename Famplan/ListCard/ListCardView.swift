@@ -17,7 +17,7 @@ struct ListCardView: View {
                     Text(viewModel.image)
                         .font(.title)
                         .padding(8)
-                        .background(Color.orange.opacity(0.2))
+                        .background(Color("Yellow"))
                         .clipShape(Circle())
                 }
                 Text(viewModel.listTitle)

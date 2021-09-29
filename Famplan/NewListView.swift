@@ -12,14 +12,14 @@ struct NewListView: View {
     @State private var name: String = ""
     
     let colors: [Color] = [
-        Color.green.opacity(0.2),
-        Color.red.opacity(0.2),
-        Color.pink.opacity(0.2),
-        Color.yellow.opacity(0.2),
-        Color.orange.opacity(0.2),
-        Color.blue.opacity(0.2),
-        Color.black.opacity(0.2),
-        Color.brown.opacity(0.2)
+        Color("Green"),
+        Color("Red"),
+        Color("Pink"),
+        Color("Yellow"),
+        Color("Orange"),
+        Color("Blue"),
+        Color("Purple"),
+        Color("Brown")
     ]
     
     let columns = [
@@ -38,7 +38,7 @@ struct NewListView: View {
                             Text("💰")
                                 .font(.system(size: 50))
                                 .padding(8)
-                                .background(Color.orange.opacity(0.2))
+                                .background(Color("Black"))
                                 .clipShape(Circle())
                             TextField("List Name", text: $name)
                                 .padding()

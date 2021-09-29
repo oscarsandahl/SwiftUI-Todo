@@ -16,9 +16,9 @@ struct ListCardView: View {
                 ZStack {
                     Text(viewModel.image)
                         .font(.title)
-                        .padding(5)
+                        .padding(8)
                         .background(Color.orange.opacity(0.15))
-                        .clipShape(Capsule())
+                        .clipShape(Circle())
                 }
                 Text(viewModel.listTitle)
                     .lineLimit(1)

@@ -9,14 +9,26 @@ import SwiftUI
 
 struct NewListView: View {
     @Environment(\.dismiss) var dismiss
+    @State private var name: String = ""
     
     var body: some View {
         NavigationView {
             VStack {
                 Form {
                     Section {
-                        
+                        VStack(spacing: 20) {
+                            Text("💰")
+                                .font(.system(size: 50))
+                                .padding(5)
+                                .background(Color.orange.opacity(0.15))
+                                .clipShape(Capsule())
+                            TextField("Te", text: $name)
+                                .padding()
+                                .background(Color.gray.opacity(0.15))
+                                .cornerRadius(10)
+                        }
                     }
+                    .padding()
                 }
             }
             .navigationBarTitle("New List", displayMode: .inline)

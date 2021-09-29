@@ -74,7 +74,7 @@ struct NewListView: View {
                     Button("Done") {
                         print("Done Tapped!")
                     }
-                    .disabled(true)
+                    .disabled(inputField.isEmpty)
                 }
             }
         }

@@ -10,6 +10,7 @@ import SwiftUI
 struct NewListView: View {
     @Environment(\.dismiss) var dismiss
     @State private var inputField: String = ""
+    @State private var iconField: String = "💰"
     @State private var selectedColor: Color = Color("Black")
     
     let colors: [Color] = [
@@ -36,8 +37,10 @@ struct NewListView: View {
                 Form {
                     Section {
                         VStack(spacing: 20) {
-                            Text("💰")
+                            TextField("", text: $iconField)
                                 .font(.system(size: 50))
+                                .multilineTextAlignment(.center)
+                                .lineLimit(1)
                                 .padding(8)
                                 .background(selectedColor)
                                 .clipShape(Circle())

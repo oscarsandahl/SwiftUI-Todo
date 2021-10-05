@@ -10,10 +10,6 @@ import SwiftUI
 struct OverView: View {
     @ObservedObject private var viewModel = OverviewViewModel()
     
-    var index: Int {
-        viewModel.lists.count + 1
-    }
-    
     //MARK: - View
     var body: some View {
         NavigationView {

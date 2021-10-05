@@ -7,8 +7,9 @@
 
 import Foundation
 
-class OverviewViewModel: ObservableObject {
+final class OverviewViewModel: ObservableObject {
     @Published var lists: [ListCardViewModel] = []
+    @Published var showingSheet = false
 }
 
 extension OverviewViewModel {

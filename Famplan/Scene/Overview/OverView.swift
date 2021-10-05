@@ -14,8 +14,6 @@ struct OverView: View {
         viewModel.lists.count + 1
     }
     
-    @State private var showingSheet = false
-    
     //MARK: - View
     var body: some View {
         NavigationView {
@@ -30,9 +28,9 @@ struct OverView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
                     ToolBarButtonView(viewModel: ToolBarButtonViewModel(action: {
-                        showingSheet.toggle()
+                        viewModel.showingSheet.toggle()
                     }))
-                        .sheet(isPresented: $showingSheet) {
+                        .sheet(isPresented: $viewModel.showingSheet) {
                             NewListView()
                         }
                     Spacer()

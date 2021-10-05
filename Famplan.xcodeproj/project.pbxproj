@@ -42,6 +42,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6365A2B4270C96D100445FC5 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				63DE3B2E270349BB002DDD2A /* NewListView.swift */,
+				6365A2B5270C96F600445FC5 /* Overview */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		6365A2B5270C96F600445FC5 /* Overview */ = {
+			isa = PBXGroup;
+			children = (
+				63EEE47726FB1EC2000547F0 /* OverView.swift */,
+				6365A2B2270C8F6B00445FC5 /* OverviewViewModel.swift */,
+			);
+			path = Overview;
+			sourceTree = "<group>";
+		};
 		63DE3B2827031591002DDD2A /* ListCard */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,14 +96,12 @@
 		63EEE47426FB1EC2000547F0 /* Famplan */ = {
 			isa = PBXGroup;
 			children = (
+				6365A2B4270C96D100445FC5 /* Scene */,
 				63DE3B2B27033909002DDD2A /* Components */,
 				63DE3B2827031591002DDD2A /* ListCard */,
 				63EEE47526FB1EC2000547F0 /* FamplanApp.swift */,
-				63EEE47726FB1EC2000547F0 /* OverView.swift */,
-				63DE3B2E270349BB002DDD2A /* NewListView.swift */,
 				63EEE47926FB1EC3000547F0 /* Assets.xcassets */,
 				63EEE47B26FB1EC3000547F0 /* Preview Content */,
-				6365A2B2270C8F6B00445FC5 /* OverviewViewModel.swift */,
 			);
 			path = Famplan;
 			sourceTree = "<group>";

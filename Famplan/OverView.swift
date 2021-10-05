@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  OverView.swift
 //  Famplan
 //
 //  Created by Sandahl, Oscar on 2021-09-22.
@@ -7,15 +7,11 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @State var mockLists: [ListCardViewModel] = [
-        ListCardViewModel(listTitle: "List 1", image: "🛍", items: 0),
-        ListCardViewModel(listTitle: "List 2", image: "📝", items: 5),
-        ListCardViewModel(listTitle: "List 3", image: "💰", items: 8)
-    ]
+struct OverView: View {
+    @ObservedObject private var viewModel = OverviewViewModel()
     
     var index: Int {
-        mockLists.count + 1
+        viewModel.lists.count + 1
     }
     
     @State private var showingSheet = false
@@ -24,7 +20,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach($mockLists) { cell in
+                ForEach($viewModel.lists) { cell in
                     NavigationLink(destination: Text("New List")) {
                         ListCardView(viewModel: cell)
                     }
@@ -42,12 +38,14 @@ struct ContentView: View {
                     Spacer()
                 }
             }
+        }.onAppear {
+            viewModel.populateMockLists()
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        OverView()
     }
 }

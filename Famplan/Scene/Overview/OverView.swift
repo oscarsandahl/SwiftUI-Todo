@@ -19,6 +19,7 @@ struct OverView: View {
                         ListCardView(listOverview: ListOverview(listTitle: cell.listTitle, image: cell.image, color: cell.color, items: cell.items))
                     }
                 }
+                .onDelete(perform: viewModel.deleteFromList)
             }
             .navigationTitle("Title")
             .toolbar {

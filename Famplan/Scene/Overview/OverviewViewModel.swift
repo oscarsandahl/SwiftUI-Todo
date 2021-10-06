@@ -10,6 +10,10 @@ import Foundation
 final class OverviewViewModel: ObservableObject {
     @Published var lists: [ListOverview] = []
     @Published var showingSheet = false
+    
+    func deleteFromList(at offsets: IndexSet) {
+        lists.remove(atOffsets: offsets)
+    }
 }
 
 extension OverviewViewModel {

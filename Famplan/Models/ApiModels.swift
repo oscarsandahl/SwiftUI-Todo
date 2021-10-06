@@ -12,5 +12,11 @@ struct ListOverview: Identifiable, Decodable {
     var listTitle: String
     var image: String
     var color: String
-    var items: Int
+    var items: [ListItem]
+}
+
+struct ListItem: Identifiable, Decodable {
+    var id = UUID()
+    var title: String
+    var checked: Bool
 }

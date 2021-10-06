@@ -24,7 +24,7 @@ struct ListCardView: View {
                     .lineLimit(1)
                     .multilineTextAlignment(.center)
                 Spacer()
-                Text("\(listOverview.items)")
+                Text("\(listOverview.items.count)")
                     .foregroundColor(.secondary)
             }
         }
@@ -33,6 +33,6 @@ struct ListCardView: View {
 
 struct ListCard_Previews: PreviewProvider {
     static var previews: some View {
-        ListCardView(listOverview: ListOverview(listTitle: "Title", image: "💎", color: "Red", items: 7)).previewLayout(.sizeThatFits)
+        ListCardView(listOverview: ListOverview(listTitle: "Title", image: "💎", color: "Red", items: [])).previewLayout(.sizeThatFits)
     }
 }

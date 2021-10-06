@@ -19,9 +19,17 @@ final class OverviewViewModel: ObservableObject {
 extension OverviewViewModel {
     func populateMockLists() {
         lists = [
-            ListOverview(listTitle: "Title", image: "💎", color: "Yellow", items: 4),
-            ListOverview(listTitle: "Title", image: "💰", color: "Green", items: 6),
-            ListOverview(listTitle: "Title", image: "🔑", color: "Red", items: 3)
+            ListOverview(listTitle: "Title", image: "💎", color: "Yellow", items: [
+                ListItem(title: "Title", checked: false)
+            ]),
+            ListOverview(listTitle: "Title2", image: "💰", color: "Green", items: [
+                ListItem(title: "Title2", checked: true)
+            ]),
+            ListOverview(listTitle: "Title3", image: "🔑", color: "Red", items: [
+                ListItem(title: "Title3", checked: false),
+                ListItem(title: "Title3", checked: false),
+                ListItem(title: "Title3", checked: false)
+            ])
         ]
     }
 }

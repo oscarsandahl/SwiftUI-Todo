@@ -14,9 +14,9 @@ struct OverView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach($viewModel.lists) { cell in
+                ForEach(viewModel.lists) { cell in
                     NavigationLink(destination: Text("New List")) {
-                        ListCardView(viewModel: cell)
+                        ListCardView(listOverview: ListOverview(listTitle: cell.listTitle, image: cell.image, items: cell.items))
                     }
                 }
             }

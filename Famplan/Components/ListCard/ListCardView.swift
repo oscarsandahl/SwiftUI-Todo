@@ -33,6 +33,6 @@ struct ListCardView: View {
 
 struct ListCard_Previews: PreviewProvider {
     static var previews: some View {
-        ListCardView(listOverview: ListOverview(listTitle: "Title", image: "💎", items: 7))
+        ListCardView(listOverview: ListOverview(listTitle: "Title", image: "💎", items: 7)).previewLayout(.sizeThatFits)
     }
 }

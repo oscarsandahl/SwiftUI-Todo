@@ -16,7 +16,7 @@ struct OverView: View {
             List {
                 ForEach(viewModel.lists) { cell in
                     NavigationLink(destination: Text("New List")) {
-                        ListCardView(listOverview: ListOverview(listTitle: cell.listTitle, image: cell.image, items: cell.items))
+                        ListCardView(listOverview: ListOverview(listTitle: cell.listTitle, image: cell.image, color: cell.color, items: cell.items))
                     }
                 }
             }

@@ -11,5 +11,6 @@ struct ListOverview: Identifiable, Decodable {
     var id = UUID()
     var listTitle: String
     var image: String
+    var color: String
     var items: Int
 }

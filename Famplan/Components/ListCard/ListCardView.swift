@@ -17,7 +17,7 @@ struct ListCardView: View {
                     Text(listOverview.image)
                         .font(.title)
                         .padding(8)
-                        .background(Color("Yellow"))
+                        .background(Color(listOverview.color))
                         .clipShape(Circle())
                 }
                 Text(listOverview.listTitle)
@@ -33,6 +33,6 @@ struct ListCardView: View {
 
 struct ListCard_Previews: PreviewProvider {
     static var previews: some View {
-        ListCardView(listOverview: ListOverview(listTitle: "Title", image: "💎", items: 7)).previewLayout(.sizeThatFits)
+        ListCardView(listOverview: ListOverview(listTitle: "Title", image: "💎", color: "Red", items: 7)).previewLayout(.sizeThatFits)
     }
 }

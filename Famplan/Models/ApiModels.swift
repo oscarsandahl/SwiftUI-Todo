@@ -9,9 +9,7 @@ import Foundation
 
 struct ListOverview: Identifiable, Decodable {
     var id = UUID()
-    var listTitle: String
-    var image: String
-    var color: String
+    var listTitle, image, color: String
     var items: [ListItem]
 }
 

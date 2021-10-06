@@ -9,7 +9,6 @@ import SwiftUI
 import Combine
 
 final class NewListViewModel: ObservableObject {
-    @Environment(\.dismiss) var dismiss
     @Published var inputField: String = ""
     
     let textLimit = 1
@@ -36,6 +35,7 @@ final class NewListViewModel: ObservableObject {
 struct NewListView: View {
     @ObservedObject private var viewModel = NewListViewModel()
     
+    @Environment(\.dismiss) var dismiss
     @State private var iconField: String = "💰"
     @State private var selectedColor: Color = Color("Black")
     
@@ -88,7 +88,7 @@ struct NewListView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") {
-                        viewModel.dismiss()
+                        dismiss()
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {

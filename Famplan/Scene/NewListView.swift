@@ -8,19 +8,11 @@
 import SwiftUI
 import Combine
 
-struct NewListView: View {
+final class NewListViewModel: ObservableObject {
     @Environment(\.dismiss) var dismiss
-    @State private var inputField: String = ""
-    @State private var iconField: String = "💰"
-    @State private var selectedColor: Color = Color("Black")
+    @Published var inputField: String = ""
     
     let textLimit = 1
-    
-    func limitText(_ upper: Int) {
-        if iconField.count > upper {
-            iconField = String(iconField.prefix(upper))
-        }
-    }
     
     let colors: [Color] = [
         Color("Green"),
@@ -39,7 +31,20 @@ struct NewListView: View {
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
+}
+
+struct NewListView: View {
+    @ObservedObject private var viewModel = NewListViewModel()
     
+    @State private var iconField: String = "💰"
+    @State private var selectedColor: Color = Color("Black")
+    
+    func limitText(_ upper: Int) {
+        if iconField.count > upper {
+            iconField = String(iconField.prefix(upper))
+        }
+    }
+
     var body: some View {
         NavigationView {
             VStack {
@@ -48,7 +53,7 @@ struct NewListView: View {
                         VStack(spacing: 20) {
                             TextField("", text: $iconField)
                                 .onReceive(Just(iconField), perform: { _ in
-                                    limitText(textLimit)
+                                    limitText(viewModel.textLimit)
                                 })
                                 .font(.system(size: 50))
                                 .multilineTextAlignment(.center)
@@ -56,7 +61,7 @@ struct NewListView: View {
                                 .padding(8)
                                 .background(selectedColor)
                                 .clipShape(Circle())
-                            TextField("List Name", text: $inputField)
+                            TextField("List Name", text: $viewModel.inputField)
                                 .padding()
                                 .background(Color.gray.opacity(0.2))
                                 .cornerRadius(10)
@@ -64,8 +69,8 @@ struct NewListView: View {
                     }
                     .padding()
                     Section {
-                        LazyVGrid(columns: columns, spacing: 20) {
-                            ForEach(colors, id:  \.self) { color in
+                        LazyVGrid(columns: viewModel.columns, spacing: 20) {
+                            ForEach(viewModel.colors, id:  \.self) { color in
                                 Circle()
                                 .frame(width: 50, height: 50)
                                 .foregroundColor(color)
@@ -83,14 +88,14 @@ struct NewListView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") {
-                        dismiss()
+                        viewModel.dismiss()
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
                         print("Done Tapped!")
                     }
-                    .disabled(inputField.isEmpty || iconField.isEmpty)
+                    .disabled(viewModel.inputField.isEmpty || iconField.isEmpty)
                 }
             }
         }

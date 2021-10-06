@@ -38,7 +38,7 @@ struct NewListView: View {
     
     @Environment(\.dismiss) var dismiss
     @State private var iconField: String = "💰"
-    @State private var selectedColor: Color = Color("Black")
+    @State private var selectedColor: String = "Black"
     
     func limitText(_ upper: Int) {
         if iconField.count > upper {
@@ -60,7 +60,7 @@ struct NewListView: View {
                                 .multilineTextAlignment(.center)
                                 .lineLimit(1)
                                 .padding(8)
-                                .background(selectedColor)
+                                .background(Color(selectedColor))
                                 .clipShape(Circle())
                             TextField("List Name", text: $viewModel.inputField)
                                 .padding()
@@ -71,12 +71,12 @@ struct NewListView: View {
                     .padding()
                     Section {
                         LazyVGrid(columns: viewModel.columns, spacing: 20) {
-                            ForEach(viewModel.colors, id:  \.self) { color in
+                            ForEach(viewModel.colors, id: \.self) { color in
                                 Circle()
                                 .frame(width: 50, height: 50)
                                 .foregroundColor(Color(color))
                                 .onTapGesture {
-                                    selectedColor = Color(color)
+                                    selectedColor = color
                                 }
                             }
                         }
@@ -94,7 +94,7 @@ struct NewListView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
-                        lists.append(ListOverview(listTitle: viewModel.inputField, image: iconField, color: "Black", items: []))
+                        lists.append(ListOverview(listTitle: viewModel.inputField, image: iconField, color: selectedColor, items: []))
                         dismiss()
                     }
                     .disabled(viewModel.inputField.isEmpty || iconField.isEmpty)

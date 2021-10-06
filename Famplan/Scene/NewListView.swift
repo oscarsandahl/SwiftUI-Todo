@@ -45,6 +45,10 @@ struct NewListView: View {
             iconField = String(iconField.prefix(upper))
         }
     }
+    
+    func createList() {
+        lists.append(ListOverview(listTitle: viewModel.inputField, image: iconField, color: selectedColor, items: []))
+    }
 
     var body: some View {
         NavigationView {
@@ -94,7 +98,7 @@ struct NewListView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
-                        lists.append(ListOverview(listTitle: viewModel.inputField, image: iconField, color: selectedColor, items: []))
+                        createList()
                         dismiss()
                     }
                     .disabled(viewModel.inputField.isEmpty || iconField.isEmpty)

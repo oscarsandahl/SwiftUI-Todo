@@ -28,7 +28,7 @@ struct OverView: View {
                         viewModel.showingSheet.toggle()
                     }))
                         .sheet(isPresented: $viewModel.showingSheet) {
-                            NewListView()
+                            NewListView(lists: $viewModel.lists)
                         }
                     Spacer()
                 }

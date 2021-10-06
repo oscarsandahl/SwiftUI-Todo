@@ -13,15 +13,15 @@ final class NewListViewModel: ObservableObject {
     
     let textLimit = 1
     
-    let colors: [Color] = [
-        Color("Green"),
-        Color("Red"),
-        Color("Pink"),
-        Color("Yellow"),
-        Color("Orange"),
-        Color("Blue"),
-        Color("Purple"),
-        Color("Brown")
+    let colors: [String] = [
+        "Red",
+        "Green",
+        "Pink",
+        "Yellow",
+        "Orange",
+        "Blue",
+        "Purple",
+        "Brown"
     ]
     
     let columns = [
@@ -34,6 +34,7 @@ final class NewListViewModel: ObservableObject {
 
 struct NewListView: View {
     @ObservedObject private var viewModel = NewListViewModel()
+    @Binding var lists: [ListOverview]
     
     @Environment(\.dismiss) var dismiss
     @State private var iconField: String = "💰"
@@ -73,9 +74,9 @@ struct NewListView: View {
                             ForEach(viewModel.colors, id:  \.self) { color in
                                 Circle()
                                 .frame(width: 50, height: 50)
-                                .foregroundColor(color)
+                                .foregroundColor(Color(color))
                                 .onTapGesture {
-                                    selectedColor = color
+                                    selectedColor = Color(color)
                                 }
                             }
                         }
@@ -93,19 +94,12 @@ struct NewListView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
-                        print("Done Tapped!")
+                        lists.append(ListOverview(listTitle: viewModel.inputField, image: iconField, color: "Black", items: []))
+                        dismiss()
                     }
                     .disabled(viewModel.inputField.isEmpty || iconField.isEmpty)
                 }
             }
-        }
-    }
-}
-
-struct NewList_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            NewListView()
         }
     }
 }

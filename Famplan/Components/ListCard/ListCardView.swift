@@ -8,23 +8,23 @@
 import SwiftUI
 
 struct ListCardView: View {
-    @Binding var viewModel: ListCardViewModel
+    var listOverview: ListOverview
     
     var body: some View {
         ZStack {
             HStack(spacing: 15) {
                 ZStack {
-                    Text(viewModel.image)
+                    Text(listOverview.image)
                         .font(.title)
                         .padding(8)
                         .background(Color("Yellow"))
                         .clipShape(Circle())
                 }
-                Text(viewModel.listTitle)
+                Text(listOverview.listTitle)
                     .lineLimit(1)
                     .multilineTextAlignment(.center)
                 Spacer()
-                Text("\(viewModel.items)")
+                Text("\(listOverview.items)")
                     .foregroundColor(.secondary)
             }
         }
@@ -33,6 +33,6 @@ struct ListCardView: View {
 
 struct ListCard_Previews: PreviewProvider {
     static var previews: some View {
-        ListCardView(viewModel: .constant(ListCardViewModel(listTitle: "My List", image: "🛍", items: 0))).previewLayout(.fixed(width: 300, height: 100))
+        ListCardView(listOverview: ListOverview(listTitle: "Title", image: "💎", items: 7))
     }
 }

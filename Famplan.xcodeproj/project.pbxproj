@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6365A2B3270C8F6B00445FC5 /* OverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6365A2B2270C8F6B00445FC5 /* OverviewViewModel.swift */; };
+		636B87AD270D773D00C56EE6 /* ApiModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636B87AC270D773D00C56EE6 /* ApiModels.swift */; };
 		63BFF1A726FB734E0040E147 /* ListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BFF1A626FB734E0040E147 /* ListCardView.swift */; };
 		63DE3B2A270315AA002DDD2A /* ListCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE3B29270315AA002DDD2A /* ListCardViewModel.swift */; };
 		63DE3B2D2703391E002DDD2A /* ToolBarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DE3B2C2703391E002DDD2A /* ToolBarButtonView.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		6365A2B2270C8F6B00445FC5 /* OverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewModel.swift; sourceTree = "<group>"; };
+		636B87AC270D773D00C56EE6 /* ApiModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiModels.swift; sourceTree = "<group>"; };
 		63BFF1A626FB734E0040E147 /* ListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCardView.swift; sourceTree = "<group>"; };
 		63DE3B29270315AA002DDD2A /* ListCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCardViewModel.swift; sourceTree = "<group>"; };
 		63DE3B2C2703391E002DDD2A /* ToolBarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarButtonView.swift; sourceTree = "<group>"; };
@@ -60,6 +62,14 @@
 			path = Overview;
 			sourceTree = "<group>";
 		};
+		636B87AB270D772800C56EE6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				636B87AC270D773D00C56EE6 /* ApiModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		63DE3B2827031591002DDD2A /* ListCard */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +106,7 @@
 		63EEE47426FB1EC2000547F0 /* Famplan */ = {
 			isa = PBXGroup;
 			children = (
+				636B87AB270D772800C56EE6 /* Models */,
 				6365A2B4270C96D100445FC5 /* Scene */,
 				63DE3B2B27033909002DDD2A /* Components */,
 				63DE3B2827031591002DDD2A /* ListCard */,
@@ -184,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				636B87AD270D773D00C56EE6 /* ApiModels.swift in Sources */,
 				63DE3B2A270315AA002DDD2A /* ListCardViewModel.swift in Sources */,
 				63EEE47826FB1EC2000547F0 /* OverView.swift in Sources */,
 				63EEE47626FB1EC2000547F0 /* FamplanApp.swift in Sources */,

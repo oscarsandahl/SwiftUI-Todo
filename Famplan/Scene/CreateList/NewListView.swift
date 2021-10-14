@@ -8,32 +8,34 @@
 import SwiftUI
 import Combine
 
-final class NewListViewModel: ObservableObject {
-    @Published var inputField: String = ""
-    
-    let textLimit = 1
-    
-    let colors: [String] = [
-        "Red",
-        "Green",
-        "Pink",
-        "Yellow",
-        "Orange",
-        "Blue",
-        "Purple",
-        "Brown"
-    ]
-    
-    let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
+extension NewListView {
+    final class ViewModel: ObservableObject {
+        @Published var inputField: String = ""
+        
+        let textLimit = 1
+        
+        let colors: [String] = [
+            "Red",
+            "Green",
+            "Pink",
+            "Yellow",
+            "Orange",
+            "Blue",
+            "Purple",
+            "Brown"
+        ]
+        
+        let columns = [
+            GridItem(.flexible()),
+            GridItem(.flexible()),
+            GridItem(.flexible()),
+            GridItem(.flexible())
+        ]
+    }
 }
 
 struct NewListView: View {
-    @ObservedObject private var viewModel = NewListViewModel()
+    @ObservedObject private var viewModel = ViewModel()
     @Binding var lists: [ListOverview]
     
     @Environment(\.dismiss) var dismiss

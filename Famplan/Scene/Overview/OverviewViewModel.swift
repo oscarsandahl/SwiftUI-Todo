@@ -23,7 +23,8 @@ extension OverviewViewModel {
                 ListItem(title: "Title", checked: false)
             ]),
             ListOverview(listTitle: "Title2", image: "💰", color: "Green", items: [
-                ListItem(title: "Title2", checked: true)
+                ListItem(title: "Title2", checked: true),
+                ListItem(title: "Title2", checked: false)
             ]),
             ListOverview(listTitle: "Title3", image: "🔑", color: "Red", items: [
                 ListItem(title: "Title3", checked: false),

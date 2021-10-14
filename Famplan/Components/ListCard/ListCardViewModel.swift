@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 extension ListCardView {
-    class ViewModel: ObservableObject {
+    final class ViewModel: ObservableObject {
         @Published private(set) var image: String
         @Published private(set) var color: String
         @Published private(set) var listTitle: String

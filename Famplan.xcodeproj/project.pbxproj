@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		631C6C032718579D000EB181 /* SelectedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631C6C022718579D000EB181 /* SelectedListView.swift */; };
+		631C6C052718584D000EB181 /* ListCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631C6C042718584D000EB181 /* ListCardViewModel.swift */; };
 		6365A2B3270C8F6B00445FC5 /* OverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6365A2B2270C8F6B00445FC5 /* OverviewViewModel.swift */; };
 		636B87AD270D773D00C56EE6 /* ApiModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636B87AC270D773D00C56EE6 /* ApiModels.swift */; };
 		63BFF1A726FB734E0040E147 /* ListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BFF1A626FB734E0040E147 /* ListCardView.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		631C6C022718579D000EB181 /* SelectedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedListView.swift; sourceTree = "<group>"; };
+		631C6C042718584D000EB181 /* ListCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCardViewModel.swift; sourceTree = "<group>"; };
 		6365A2B2270C8F6B00445FC5 /* OverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewModel.swift; sourceTree = "<group>"; };
 		636B87AC270D773D00C56EE6 /* ApiModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiModels.swift; sourceTree = "<group>"; };
 		63BFF1A626FB734E0040E147 /* ListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCardView.swift; sourceTree = "<group>"; };
@@ -42,11 +46,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6365A2B4270C96D100445FC5 /* Scene */ = {
+		631C6C01271856AC000EB181 /* CreateList */ = {
 			isa = PBXGroup;
 			children = (
 				63DE3B2E270349BB002DDD2A /* NewListView.swift */,
+			);
+			path = CreateList;
+			sourceTree = "<group>";
+		};
+		631C6C062718586C000EB181 /* SelectedList */ = {
+			isa = PBXGroup;
+			children = (
+				631C6C022718579D000EB181 /* SelectedListView.swift */,
+			);
+			path = SelectedList;
+			sourceTree = "<group>";
+		};
+		6365A2B4270C96D100445FC5 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				631C6C01271856AC000EB181 /* CreateList */,
 				6365A2B5270C96F600445FC5 /* Overview */,
+				631C6C062718586C000EB181 /* SelectedList */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -72,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				63BFF1A626FB734E0040E147 /* ListCardView.swift */,
+				631C6C042718584D000EB181 /* ListCardViewModel.swift */,
 			);
 			path = ListCard;
 			sourceTree = "<group>";
@@ -193,6 +215,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				636B87AD270D773D00C56EE6 /* ApiModels.swift in Sources */,
+				631C6C052718584D000EB181 /* ListCardViewModel.swift in Sources */,
+				631C6C032718579D000EB181 /* SelectedListView.swift in Sources */,
 				63EEE47826FB1EC2000547F0 /* OverView.swift in Sources */,
 				63EEE47626FB1EC2000547F0 /* FamplanApp.swift in Sources */,
 				63BFF1A726FB734E0040E147 /* ListCardView.swift in Sources */,

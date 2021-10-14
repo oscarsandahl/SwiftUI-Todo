@@ -5,6 +5,8 @@
 //  Created by Sandahl, Oscar on 2021-10-06.
 //
 
+//TODO: Rename to DataModels
+
 import Foundation
 
 struct ListOverview: Identifiable, Decodable {

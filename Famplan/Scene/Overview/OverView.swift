@@ -16,7 +16,7 @@ struct OverView: View {
             List {
                 ForEach(viewModel.lists) { cell in
                     NavigationLink(destination: Text("New List")) {
-                        ListCardView(listOverview: ListOverview(listTitle: cell.listTitle, image: cell.image, color: cell.color, items: cell.items))
+                        ListCardView(viewModel: .init(image: cell.image, color: cell.color, listTitle: cell.listTitle, items: cell.items))
                     }
                 }
                 .onDelete(perform: viewModel.deleteFromList)

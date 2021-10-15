@@ -40,7 +40,9 @@ struct SelectedListView: View {
                         viewModel.checkmarkTapped(cell: cell)
                     }) {
                         Image(systemName: cell.checked ? "checkmark.circle.fill" : "circle")
+                            .font(.title2)
                     }
+                    .buttonStyle(.borderless)
                 }
             }
             .onDelete(perform: viewModel.deleteFromList)

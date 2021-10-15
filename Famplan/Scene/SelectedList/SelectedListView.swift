@@ -9,9 +9,11 @@ import SwiftUI
 
 extension SelectedListView {
     final class ViewModel: ObservableObject {
+        private(set) var title: String
         @Published private(set) var items: [ListItem]
         
-        init(items: [ListItem]) {
+        init(title: String, items: [ListItem]) {
+            self.title = title
             self.items = items
         }
         
@@ -47,11 +49,20 @@ struct SelectedListView: View {
             }
             .onDelete(perform: viewModel.deleteFromList)
         }
+        .navigationTitle(viewModel.title)
+        .toolbar {
+            ToolbarItemGroup(placement: .bottomBar) {
+                ToolBarButtonView(viewModel: .init(action: {
+                    
+                }))
+                Spacer()
+            }
+        }
     }
 }
 
 struct SelectedListView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectedListView(viewModel: .init(items: [ListItem(id: "123", title: "Title", checked: false)]))
+        SelectedListView(viewModel: .init(title: "Title", items: [ListItem(id: "123", title: "Title", checked: false)]))
     }
 }

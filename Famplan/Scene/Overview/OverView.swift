@@ -15,7 +15,7 @@ struct OverView: View {
         NavigationView {
             List {
                 ForEach(viewModel.lists) { cell in
-                    NavigationLink(destination: SelectedListView(viewModel: .init(items: cell.items))) {
+                    NavigationLink(destination: SelectedListView(viewModel: .init(title: cell.listTitle, items: cell.items))) {
                         ListCardView(viewModel: .init(image: cell.image, color: cell.color, listTitle: cell.listTitle, items: cell.items))
                     }
                 }

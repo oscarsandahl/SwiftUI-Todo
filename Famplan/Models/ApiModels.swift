@@ -10,13 +10,11 @@
 import Foundation
 
 struct ListOverview: Identifiable, Decodable {
-    var id = UUID()
-    var listTitle, image, color: String
+    var id, listTitle, image, color: String
     var items: [ListItem]
 }
 
 struct ListItem: Identifiable, Decodable {
-    var id = UUID()
-    var title: String
+    var id, title: String
     var checked: Bool
 }

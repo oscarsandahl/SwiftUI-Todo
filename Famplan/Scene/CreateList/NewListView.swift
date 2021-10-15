@@ -49,7 +49,7 @@ struct NewListView: View {
     }
     
     func createList() {
-        lists.append(ListOverview(listTitle: viewModel.inputField, image: iconField, color: selectedColor, items: []))
+        lists.append(ListOverview(id: UUID().uuidString, listTitle: viewModel.inputField, image: iconField, color: selectedColor, items: []))
     }
 
     var body: some View {

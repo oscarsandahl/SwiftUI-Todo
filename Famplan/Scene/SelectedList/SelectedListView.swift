@@ -18,6 +18,12 @@ extension SelectedListView {
         func deleteFromList(at offsets: IndexSet) {
             items.remove(atOffsets: offsets)
         }
+        
+        func checkmarkTapped(cell: ListItem) {
+            if let index = items.firstIndex(where: { $0.id == cell.id }) {
+                items[index].checked.toggle()
+            }
+        }
     }
 }
 
@@ -30,7 +36,11 @@ struct SelectedListView: View {
                 HStack {
                     Text(cell.title)
                     Spacer()
-                    Image(systemName: cell.checked ? "checkmark.circle.fill" : "circle")
+                    Button(action: {
+                        viewModel.checkmarkTapped(cell: cell)
+                    }) {
+                        Image(systemName: cell.checked ? "checkmark.circle.fill" : "circle")
+                    }
                 }
             }
             .onDelete(perform: viewModel.deleteFromList)
@@ -40,6 +50,6 @@ struct SelectedListView: View {
 
 struct SelectedListView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectedListView(viewModel: .init(items: [ListItem(title: "Title", checked: false)]))
+        SelectedListView(viewModel: .init(items: [ListItem(id: "123", title: "Title", checked: false)]))
     }
 }

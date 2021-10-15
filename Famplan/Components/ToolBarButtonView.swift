@@ -7,12 +7,8 @@
 
 import SwiftUI
 
-struct ToolBarButtonViewModel {
-    let action: () -> Void
-}
-
 struct ToolBarButtonView: View {
-    let viewModel: ToolBarButtonViewModel
+    let viewModel: ViewModel
     
     var body: some View {
         Button(action: viewModel.action) {
@@ -26,8 +22,14 @@ struct ToolBarButtonView: View {
     }
 }
 
+extension ToolBarButtonView {
+    struct ViewModel {
+        let action: () -> Void
+    }
+}
+
 struct ToolBarButton_Previews: PreviewProvider {
     static var previews: some View {
-        ToolBarButtonView(viewModel: ToolBarButtonViewModel(action: {})).previewLayout(.sizeThatFits)
+        ToolBarButtonView(viewModel: .init(action: {}))
     }
 }

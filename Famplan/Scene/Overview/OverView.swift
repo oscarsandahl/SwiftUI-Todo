@@ -24,7 +24,7 @@ struct OverView: View {
             .navigationTitle("Title")
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
-                    ToolBarButtonView(viewModel: ToolBarButtonViewModel(action: {
+                    ToolBarButtonView(viewModel: .init(action: {
                         viewModel.showingSheet.toggle()
                     }))
                         .sheet(isPresented: $viewModel.showingSheet) {
